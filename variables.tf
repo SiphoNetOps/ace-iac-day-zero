@@ -20,7 +20,7 @@ variable "aws_transit_instance_size" {
 }
 
 variable "aws_transit1_region" {
-  default = "us-east-1"
+  default = "us-east-2"
 }
 
 variable "aws_transit1_name" {
@@ -28,7 +28,7 @@ variable "aws_transit1_name" {
 }
 
 variable "aws_transit1_cidr" {
-  default = "10.255.0.0/20"
+  default = "10.1.200.0/23"
 }
 
 variable "aws_spoke_instance_size" {
@@ -36,7 +36,7 @@ variable "aws_spoke_instance_size" {
 }
 
 variable "aws_spoke1_region" {
-  default = "us-east-1"
+  default = "us-east-2"
 }
 
 variable "aws_spoke1_name" {
@@ -44,7 +44,7 @@ variable "aws_spoke1_name" {
 }
 
 variable "aws_spoke1_cidr" {
-  default = "10.255.0.0/20"
+  default = "10.1.211.0/24"
 }
 
 variable "aws_test_instance_size" {
@@ -80,7 +80,7 @@ variable "azure_spoke2_name" {
 }
 
 variable "azure_spoke2_cidr" {
-  default = "10.255.0.0/20"
+  default = "10.1.211.0/24"
 }
 
 variable "azure_test_instance_size" {
