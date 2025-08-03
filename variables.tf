@@ -6,8 +6,17 @@ variable "password" {
 }
 
 variable "controller_ip" {
+  description = "Aviatrix Controller IP address"
 }
 
+variable "controller_username" {
+  description = "Aviatrix Controller username"
+}
+
+variable "controller_password" {
+  description = "Aviatrix Controller password"
+  sensitive   = true
+}
 variable "ace_password" {
 }
 
@@ -56,12 +65,16 @@ variable "azure_account_name" {
 }
 
 variable "azure_subscription_id" {
+  description = "Azure Subscription ID"
 }
 
 variable "azure_client_id" {
+  description = "Azure Application (Client) ID"
 }
 
 variable "azure_client_secret" {
+  description = "Azure Application Secret"
+  sensitive   = true
 }
 
 variable "azure_tenant_id" {
