@@ -1,5 +1,21 @@
 // ACE-IAC Core Aviatrix Infrastructure
 
+provider "aviatrix" {
+  controller_ip           = var.controller_ip
+  username                = var.controller_username
+  password                = var.controller_password
+  skip_version_validation = true
+}
+
+resource "aviatrix_account" "azure_account" {
+  account_name         = var.azure_account_name
+  cloud_type           = 8
+  arm_subscription_id  = var.azure_subscription_id
+  arm_directory_id     = var.azure_tenant_id
+  arm_application_id   = var.azure_client_id
+  arm_application_key  = var.azure_client_secret
+}
+
 # Private Key creation
 resource "tls_private_key" "avtx_key" {
   algorithm = "RSA"
