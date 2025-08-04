@@ -6,17 +6,8 @@ variable "password" {
 }
 
 variable "controller_ip" {
-  description = "Aviatrix Controller IP address"
 }
 
-variable "controller_username" {
-  description = "Aviatrix Controller username"
-}
-
-variable "controller_password" {
-  description = "Aviatrix Controller password"
-  sensitive   = true
-}
 variable "ace_password" {
 }
 
@@ -65,16 +56,12 @@ variable "azure_account_name" {
 }
 
 variable "azure_subscription_id" {
-  description = "Azure Subscription ID"
 }
 
 variable "azure_client_id" {
-  description = "Azure Application (Client) ID"
 }
 
 variable "azure_client_secret" {
-  description = "Azure Application Secret"
-  sensitive   = true
 }
 
 variable "azure_tenant_id" {
@@ -93,7 +80,7 @@ variable "azure_spoke2_name" {
 }
 
 variable "azure_spoke2_cidr" {
-  default = "10.1.211.0/24"
+  default = "10.1.212.0/24"
 }
 
 variable "azure_test_instance_size" {
@@ -108,4 +95,3 @@ variable "ha_enabled" {
   type    = bool
   default = false
 }
-
