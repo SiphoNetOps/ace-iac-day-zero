@@ -1,14 +1,5 @@
 // ACE-IAC Core Aviatrix Infrastructure
 
-resource "aviatrix_account" "azure_account" {
-  account_name         = var.azure_account_name
-  cloud_type           = 8
-  arm_subscription_id  = var.azure_subscription_id
-  arm_directory_id     = var.azure_tenant_id
-  arm_application_id   = var.azure_client_id
-  arm_application_key  = var.azure_client_secret
-}
-
 # Private Key creation
 resource "tls_private_key" "avtx_key" {
   algorithm = "RSA"
@@ -19,6 +10,16 @@ resource "aws_key_pair" "ace_key" {
   provider   = aws.ohio
   key_name   = var.ace_ec2_key_name
   public_key = tls_private_key.avtx_key.public_key_openssh
+}
+
+# Create an Aviatrix Azure Account
+resource "aviatrix_account" "azure_account" {
+  account_name        = var.azure_account_name
+  cloud_type          = 8
+  arm_subscription_id = var.azure_subscription_id
+  arm_directory_id    = var.azure_tenant_id
+  arm_application_id  = var.azure_client_id
+  arm_application_key = var.azure_client_secret
 }
 
 # AWS Transit Modules
@@ -83,6 +84,3 @@ resource "aviatrix_segmentation_network_domain" "BU2" {
 #  domain_name_2 = "BU2"
 #  depends_on    = [aviatrix_segmentation_network_domain.BU1, aviatrix_segmentation_network_domain.BU2]
 #} 
-
-
-
