@@ -41,7 +41,6 @@ module "aws_transit_1" {
 
 # AWS Spoke Modules
 module "aws_spoke_1" {
-  module "aws_spoke_1" {
   source         = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version        = "1.5.0"
   cloud          = "AWS"
@@ -53,8 +52,6 @@ module "aws_spoke_1" {
   ha_gw          = var.ha_enabled
   network_domain = aviatrix_segmentation_network_domain.BU1.domain_name
   transit_gw     = module.aws_transit_1.transit_gateway.gw_name
-}
-
 }
 
 module "azure_spoke_2" {
