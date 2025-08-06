@@ -20,7 +20,7 @@ variable "aws_transit_instance_size" {
 }
 
 variable "aws_transit1_region" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "aws_transit1_name" {
@@ -36,7 +36,7 @@ variable "aws_spoke_instance_size" {
 }
 
 variable "aws_spoke1_region" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "aws_spoke1_name" {
