@@ -34,6 +34,9 @@ module "aws_transit_1" {
   ha_gw               = var.ha_enabled
   instance_size       = var.aws_transit_instance_size
   enable_segmentation = true
+  create_vpc          = false
+  vpc_id              = data.aws_vpc.transit_vpc.id
+  vpc_cidr            = data.aws_vpc.transit_vpc.cidr_block
 }
 
 # AWS Spoke Modules
@@ -49,6 +52,10 @@ module "aws_spoke_1" {
   ha_gw           = var.ha_enabled
   network_domain  = aviatrix_segmentation_network_domain.BU1.domain_name
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
+  create_vpc      = false
+  vpc_id          = data.aws_vpc.spoke_vpc.id
+  vpc_cidr        = data.aws_vpc.spoke_vpc.cidr_block
+  subnet_id       = data.aws_subnet.spoke_subnet.id
 }
 
 module "azure_spoke_2" {
